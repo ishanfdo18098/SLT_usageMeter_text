@@ -18,7 +18,7 @@ setTimeout(() => {
     standardText[1].innerHTML = "Off Peak Data Usage";
 
 
-}, 3000);
+}, 1000);
 
 
 
