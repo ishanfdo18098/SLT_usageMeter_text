@@ -22,13 +22,13 @@ setTimeout(() => {
 
 
 
-function code(Usage_text, peakUsage, isOffPeak = 0, totalPeak = 0) {
+function code(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
     const textArray = Usage_text.textContent.split(" ");
     console.log(textArray);
 
     const used = textArray[0].slice(0, -2);
     const total = textArray[3].slice(0, -2);
-    const dataUsageLeft = (parseFloat(total) - parseFloat(used) - peakUsage).toFixed(2);
+    const dataUsageLeft = (parseFloat(total) - parseFloat(used) - peakDataUsageLeft).toFixed(2);
 
     Usage_text.innerHTML = dataUsageLeft.toString() + "GB Free of " + total.toString() + "GB (edited)";
 
