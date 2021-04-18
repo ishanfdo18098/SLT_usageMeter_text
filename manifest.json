@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "SLT usage meter correction",
+  "description": "This extension corrects the usage in SLT usage meter in Sri Lanka. Currently it shows how much is used, this extension changes it to show how much is free",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "https://internetvas.slt.lk/dashboard"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ]
+}
