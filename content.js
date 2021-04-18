@@ -43,8 +43,8 @@ function code(Usage_text, subtractThisPartToo, isOffPeak = 0, totalPeak = 0) {
 
         //change the circle graph
         const offPeakCircleGraph = document.getElementsByTagName("circle")[3];
-        newCalculateValue = 1100 - 1100 * offPeakUsedPercentage / 100;
-        console.log("new circle graph strok-dashoffset value " + newCalculateValue);
+        const newCalculateValue = 1100 - 1100 * offPeakUsedPercentage / 100;
+        console.log("new circle graph stroke-dashoffset value " + newCalculateValue);
         offPeakCircleGraph.style = "stroke-dashoffset: " + newCalculateValue;
     }
 
