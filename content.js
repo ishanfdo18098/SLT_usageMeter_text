@@ -33,7 +33,7 @@ setTimeout(() => {
 function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
     const textArray = Usage_text.textContent.split(" ");
 
-    console.log("code: textArray");
+    console.log("replaceDataUsageTexts: textArray");
     console.log(textArray);
 
     const used = textArray[0].slice(0, -2);
@@ -79,7 +79,7 @@ function getPredictedUsagePerDay(dataLeft) {
     console.log("getPredictedUsagePerDay: last date of this month " + lastDayOfThisMonth);
 
     const averageUsagePerDayLeft = ((dataLeft) / (lastDayOfThisMonth - day)).toFixed(2);
-    console.log(averageUsagePerDayLeft);
+    console.log("getPredictedUsagePerDay: data usage left per day " + averageUsagePerDayLeft);
 
     return averageUsagePerDayLeft;
 }
