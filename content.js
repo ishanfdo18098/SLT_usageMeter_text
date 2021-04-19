@@ -7,14 +7,14 @@ setTimeout(() => {
 
     //change Peak
     const peakUsage_text = getEleClassNameArray[0];
-    const peakUsageArray = code(peakUsage_text, 0);
+    const peakUsageArray = replaceDataUsageTexts(peakUsage_text, 0);
 
     console.log("main: peakUsageArray");
     console.log(peakUsageArray);
 
     //change off peak
     const totalUsage_text = getEleClassNameArray[1];
-    code(totalUsage_text, peakUsageArray[2], 1, peakUsageArray[1]);
+    replaceDataUsageTexts(totalUsage_text, peakUsageArray[2], 1, peakUsageArray[1]);
 
     //change the titles
     const standardText = document.getElementsByClassName("sc-dnqmqq hZAKPK");
@@ -25,12 +25,12 @@ setTimeout(() => {
     const dataPerDay = getPredictedUsagePerDay(peakUsageArray[2]);
     const validTillText = document.getElementsByTagName("em")[7];
     validTillText.innerHTML = dataPerDay + "GB should be used per day(edited)";
-    
+
 }, 1500);
 
 
 
-function code(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
+function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
     const textArray = Usage_text.textContent.split(" ");
 
     console.log("code: textArray");
