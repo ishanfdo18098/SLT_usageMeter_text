@@ -14,17 +14,24 @@ setTimeout(() => {
 
     //change off peak
     const totalUsage_text = getEleClassNameArray[1];
-    replaceDataUsageTexts(totalUsage_text, peakUsageArray[2], 1, peakUsageArray[1]);
+    const offPeakUsageArray = replaceDataUsageTexts(totalUsage_text, peakUsageArray[2], 1, peakUsageArray[1]);
+    console.log("main: offPeakUsageArray");
+    console.log(offPeakUsageArray);
 
     //change the titles
     const standardText = document.getElementsByClassName("sc-dnqmqq hZAKPK");
     standardText[0].innerHTML = "Peak Data Usage";
     standardText[1].innerHTML = "Off Peak Data Usage";
 
-    //print the predicted usage per day
-    const dataPerDay = getPredictedUsagePerDay(peakUsageArray[2]);
-    const validTillText = document.getElementsByTagName("em")[7];
-    validTillText.innerHTML = dataPerDay + "GB should be used per day (edited)";
+    //print the predicted usage per day (peak)
+    const peakDataPerDay = getPredictedUsagePerDay(peakUsageArray[2]);
+    const validTillTextPeak = document.getElementsByTagName("em")[7];
+    validTillTextPeak.innerHTML = peakDataPerDay + "GB should be used per day (edited)";
+
+    // //print the predicted usage per day (offpeak)
+    // const offPeakDataPerDay = getPredictedUsagePerDay(offPeakUsageArray[2]);
+    // const validTillTextOffPeak = document.getElementsByTagName("em")[8];
+    // validTillTextOffPeak.innerHTML = offPeakDataPerDay + "GB should be used per day (edited)";
 
 }, 1500);
 
