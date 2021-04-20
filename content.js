@@ -1,6 +1,6 @@
 console.log("SLT usage meter change data usage extension LOADED");
 
-waitForElementToDisplay("sc-dnqmqq jZsdgY", mainCode, 400, 10000)
+waitForElementToDisplay("sc-dnqmqq jZsdgY", mainCode, 400)
 
 function mainCode() {
     //change the data usages
@@ -91,7 +91,7 @@ function getPredictedUsagePerDay(dataLeft) {
 }
 
 //https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
-function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
+function waitForElementToDisplay(selector, callback, checkFrequencyInMs) {
     var startTimeInMs = Date.now();
     (function loopSearch() {
         if (document.getElementsByClassName(selector)[1] != null) {
@@ -100,8 +100,6 @@ function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeout
         }
         else {
             setTimeout(function () {
-                if (timeoutInMs && Date.now() - startTimeInMs > timeoutInMs)
-                    return;
                 loopSearch();
             }, checkFrequencyInMs);
         }
