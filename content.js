@@ -24,7 +24,7 @@ setTimeout(() => {
     //print the predicted usage per day
     const dataPerDay = getPredictedUsagePerDay(peakUsageArray[2]);
     const validTillText = document.getElementsByTagName("em")[7];
-    validTillText.innerHTML = dataPerDay + "GB should be used per day(edited)";
+    validTillText.innerHTML = dataPerDay + "GB should be used per day (edited)";
 
 }, 1500);
 
@@ -49,7 +49,7 @@ function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, tot
 
         //change the graph percentage
         const offPeakUsedPercentage = (dataUsageLeft / (total - totalPeak)).toFixed(2) * 100
-        document.getElementsByTagName("text")[1].innerHTML = offPeakUsedPercentage + "%";
+        document.getElementsByTagName("text")[1].innerHTML = offPeakUsedPercentage.toFixed(0) + "%";
 
         //change the circle graph
         const offPeakCircleGraph = document.getElementsByTagName("circle")[3];
