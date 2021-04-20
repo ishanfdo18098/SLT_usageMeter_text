@@ -10,9 +10,7 @@
         "https://internetvas.slt.lk/dashboard"
       ],
       "js": [
-        "content.js",
-        "waitForElementToDisplay.js",
-        "getPredictedUsagePerDay.js"
+        "content.js"
       ]
     }
   ],
