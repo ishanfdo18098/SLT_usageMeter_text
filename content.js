@@ -33,7 +33,6 @@ function mainCode() {
     // const offPeakDataPerDay = getPredictedUsagePerDay(offPeakUsageArray[2]);
     // const validTillTextOffPeak = document.getElementsByTagName("em")[8];
     // validTillTextOffPeak.innerHTML = offPeakDataPerDay + "GB should be used per day (edited)";
-
 }
 
 function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
