@@ -1,7 +1,8 @@
 console.log("SLT usage meter change data usage extension LOADED");
 
+waitForElementToDisplay("sc-dnqmqq jZsdgY", mainCode, 400, 10000)
 
-setTimeout(() => {
+function mainCode() {
     //change the data usages
     const getEleClassNameArray = document.getElementsByClassName("sc-dnqmqq jZsdgY");
 
@@ -33,9 +34,7 @@ setTimeout(() => {
     // const validTillTextOffPeak = document.getElementsByTagName("em")[8];
     // validTillTextOffPeak.innerHTML = offPeakDataPerDay + "GB should be used per day (edited)";
 
-}, 1500);
-
-
+}
 
 function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
     const textArray = Usage_text.textContent.split(" ");
@@ -89,4 +88,22 @@ function getPredictedUsagePerDay(dataLeft) {
     console.log("getPredictedUsagePerDay: data usage left per day " + averageUsagePerDayLeft);
 
     return averageUsagePerDayLeft;
+}
+
+//https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
+function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
+    var startTimeInMs = Date.now();
+    (function loopSearch() {
+        if (document.getElementsByClassName(selector)[1] != null) {
+            callback();
+            return;
+        }
+        else {
+            setTimeout(function () {
+                if (timeoutInMs && Date.now() - startTimeInMs > timeoutInMs)
+                    return;
+                loopSearch();
+            }, checkFrequencyInMs);
+        }
+    })();
 }
