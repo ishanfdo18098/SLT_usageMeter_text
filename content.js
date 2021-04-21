@@ -4,16 +4,16 @@ waitForElementToDisplay("sc-dnqmqq jZsdgY", mainCode, 500)
 
 function mainCode() {
     //change the data usages
-    const getEleClassNameArray = document.getElementsByClassName("sc-dnqmqq jZsdgY");
+    const dataUsageTextsArray = document.getElementsByClassName("sc-dnqmqq jZsdgY");
 
     //change Peak
-    const peakUsage_text = getEleClassNameArray[0];
+    const peakUsage_text = dataUsageTextsArray[0];
     const peakUsageArray = replaceDataUsageTexts(peakUsage_text, 0);
     console.log("main: peakUsageArray");
     console.log(peakUsageArray);
 
     //change off peak
-    const totalUsage_text = getEleClassNameArray[1];
+    const totalUsage_text = dataUsageTextsArray[1];
     const offPeakUsageArray = replaceDataUsageTexts(totalUsage_text, peakUsageArray[2], 1, peakUsageArray[1]);
     console.log("main: offPeakUsageArray");
     console.log(offPeakUsageArray);
@@ -34,7 +34,7 @@ function mainCode() {
     // validTillTextOffPeak.innerHTML = offPeakDataPerDay + "GB should be used per day (edited)";
 
     //print the number of days left under off peak data usage
-    document.getElementsByTagName("em")[8].innerHTML = daysLeft + " days left for this month(edited)"
+    document.getElementsByTagName("em")[8].innerHTML = daysLeft + " days left for this month (edited)"
 }
 
 function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
