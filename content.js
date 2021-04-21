@@ -24,7 +24,7 @@ function mainCode() {
     standardText[1].innerHTML = "Off Peak Data Usage";
 
     //print the predicted usage per day (peak)
-    const peakDataPerDay = getPredictedUsagePerDay(peakUsageArray[2]);
+    const [peakDataPerDay, daysLeft] = getPredictedUsagePerDay(peakUsageArray[2]);
     const validTillTextPeak = document.getElementsByTagName("em")[7];
     validTillTextPeak.innerHTML = peakDataPerDay + "GB should be used per day (edited)";
 
@@ -32,6 +32,9 @@ function mainCode() {
     // const offPeakDataPerDay = getPredictedUsagePerDay(offPeakUsageArray[2]);
     // const validTillTextOffPeak = document.getElementsByTagName("em")[8];
     // validTillTextOffPeak.innerHTML = offPeakDataPerDay + "GB should be used per day (edited)";
+
+    //print the number of days left under off peak data usage
+    document.getElementsByTagName("em")[8].innerHTML = daysLeft + " days left for this month(edited)"
 }
 
 function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
@@ -85,7 +88,7 @@ function getPredictedUsagePerDay(dataLeft) {
     const averageUsagePerDayLeft = ((dataLeft) / (lastDayOfThisMonth - day)).toFixed(2);
     console.log("getPredictedUsagePerDay: data usage left per day " + averageUsagePerDayLeft);
 
-    return averageUsagePerDayLeft;
+    return [averageUsagePerDayLeft, lastDayOfThisMonth - day];
 }
 
 //https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
