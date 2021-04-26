@@ -85,10 +85,11 @@ function getPredictedUsagePerDay(dataLeft) {
     let lastDayOfThisMonth = lastday(dateObject.getFullYear(), dateObject.getMonth());
     console.log("getPredictedUsagePerDay: last date of this month " + lastDayOfThisMonth);
 
-    const averageUsagePerDayLeft = ((dataLeft) / (lastDayOfThisMonth - day)).toFixed(2);
+    daysLeft = (lastDayOfThisMonth - day + 1)
+    const averageUsagePerDayLeft = ((dataLeft) / daysLeft).toFixed(2);
     console.log("getPredictedUsagePerDay: data usage left per day " + averageUsagePerDayLeft);
 
-    return [averageUsagePerDayLeft, lastDayOfThisMonth - day];
+    return [averageUsagePerDayLeft, daysLeft];
 }
 
 //https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
