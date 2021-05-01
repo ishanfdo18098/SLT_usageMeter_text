@@ -35,6 +35,14 @@ function mainCode() {
 
     //print the number of days left under off peak data usage
     document.getElementsByTagName("em")[8].innerHTML = daysLeft + " days left for this month (edited)"
+
+    //change bonus data text on the left side menu
+    const bonusDataText = document.getElementsByClassName("sc-dnqmqq diLolh")[3]
+    const totalBonusData = parseFloat(bonusDataText.innerHTML.split(" ")[3].slice(0, -2))
+    const usedBonusData = parseFloat(bonusDataText.innerHTML.split(" ")[0].slice(0, -2))
+    const bonusDataLeft = totalBonusData - usedBonusData
+    const freeDataPercentage = ((bonusDataLeft / totalBonusData) * 100).toFixed(0)
+    bonusDataText.innerHTML = bonusDataLeft + "GB(" + freeDataPercentage + "%) Free of " + totalBonusData + "GB"
 }
 
 function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, totalPeak = 0) {
@@ -44,7 +52,7 @@ function replaceDataUsageTexts(Usage_text, peakDataUsageLeft, isOffPeak = 0, tot
     console.log(textArray);
 
     const used = textArray[0].slice(0, -2);
-    const total = textArray[3].slice(0, -2);
+    let total = textArray[3].slice(0, -2);
     const dataUsageLeft = (parseFloat(total) - parseFloat(used) - peakDataUsageLeft).toFixed(2);
 
     Usage_text.innerHTML = dataUsageLeft.toString() + "GB Free of " + total.toString() + "GB (edited)";
