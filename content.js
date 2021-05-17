@@ -40,7 +40,7 @@ function mainCode() {
     const bonusDataText = document.getElementsByClassName("sc-dnqmqq diLolh")[3]
     const totalBonusData = parseFloat(bonusDataText.innerHTML.split(" ")[3].slice(0, -2))
     const usedBonusData = parseFloat(bonusDataText.innerHTML.split(" ")[0].slice(0, -2))
-    const bonusDataLeft = totalBonusData - usedBonusData
+    const bonusDataLeft = (totalBonusData - usedBonusData).toFixed(2)
     const freeDataPercentage = ((bonusDataLeft / totalBonusData) * 100).toFixed(0)
     bonusDataText.innerHTML = bonusDataLeft + "GB(" + freeDataPercentage + "%) Free of " + totalBonusData + "GB"
 }
